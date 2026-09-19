@@ -1,0 +1,915 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "name": "Aneeq Mehmood",
+            "email": "aniqmeh9002@gmail.com",
+            "password": "mighty",
+            "role": "job_seeker",
+            "favorites": [],
+            "notifications": [
+                {
+                    "id": 1,
+                    "type": "application_status",
+                    "status": "Rejected",
+                    "message": "Your application for 'Graphic Designer' has been rejected. Remarks: klkl",
+                    "job_id": 1,
+                    "application_id": 1,
+                    "read": false,
+                    "created_at": "2026-08-23T01:51:55.547697"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Aneeq Mehmood",
+            "email": "aniqmeh9001@gmail.com",
+            "password": "mighty",
+            "role": "job_poster",
+            "favorites": [],
+            "notifications": [
+                {
+                    "id": 1,
+                    "type": "application",
+                    "message": "Aneeq Mehmood applied for your job 'Graphic Designer'.",
+                    "job_id": 1,
+                    "application_id": 1,
+                    "applicant_id": 1,
+                    "read": false
+                },
+                {
+                    "id": 2,
+                    "type": "application",
+                    "message": "Aneeq Mehmood applied for your job 'Graphic Designer'.",
+                    "job_id": 1,
+                    "application_id": 2,
+                    "applicant_id": 3,
+                    "read": false
+                },
+                {
+                    "id": 3,
+                    "type": "application",
+                    "status": "Applied",
+                    "message": "Aneeq Mehmood applied for your job 'Graphic Designererfghjkl;'.",
+                    "job_id": 2,
+                    "application_id": 3,
+                    "read": false,
+                    "created_at": "2026-08-23T01:25:34.850293"
+                },
+                {
+                    "id": 4,
+                    "type": "application",
+                    "status": "Applied",
+                    "message": "Aneeq Mehmood applied for your job 'Graphic Designer1q2w3e'.",
+                    "job_id": 4,
+                    "application_id": 5,
+                    "read": false,
+                    "created_at": "2026-08-23T01:52:55.440398"
+                },
+                {
+                    "id": 5,
+                    "type": "application",
+                    "status": "Applied",
+                    "message": "haris applied for your job 'Graphic Designer'.",
+                    "job_id": 6,
+                    "application_id": 7,
+                    "read": false,
+                    "created_at": "2026-08-25T20:45:14.780439"
+                },
+                {
+                    "id": 6,
+                    "type": "application",
+                    "status": "Applied",
+                    "message": "haris applied for your job 'Software engneer'.",
+                    "job_id": 7,
+                    "application_id": 8,
+                    "read": false,
+                    "created_at": "2026-08-25T20:45:58.045958"
+                },
+                {
+                    "id": 7,
+                    "type": "application",
+                    "status": "Applied",
+                    "message": "haris applied for your job 'Hotel manager'.",
+                    "job_id": 10,
+                    "application_id": 9,
+                    "read": false,
+                    "created_at": "2026-08-25T20:46:12.499176"
+                },
+                {
+                    "id": 8,
+                    "type": "application",
+                    "status": "Applied",
+                    "message": "haris applied for your job 'Python Developer'.",
+                    "job_id": 9,
+                    "application_id": 10,
+                    "read": false,
+                    "created_at": "2026-08-25T20:46:28.899942"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "name": "Aneeq Mehmood",
+            "email": "aniqmeh9000@gmail.com",
+            "password": "mighty",
+            "role": "job_seeker",
+            "favorites": [],
+            "notifications": [
+                {
+                    "id": 1,
+                    "type": "application_status",
+                    "status": "Rejected",
+                    "message": "Your application for 'Graphic Designer' has been rejected. Remarks: hi",
+                    "job_id": 1,
+                    "application_id": 2,
+                    "applicant_id": 3,
+                    "read": false
+                },
+                {
+                    "id": 2,
+                    "type": "application_status",
+                    "status": "Rejected",
+                    "message": "Your application for 'Graphic Designererfghjkl;' has been rejected. Remarks: kl",
+                    "job_id": 2,
+                    "application_id": 3,
+                    "read": false,
+                    "created_at": "2026-08-23T01:51:42.573448"
+                },
+                {
+                    "id": 3,
+                    "type": "application_status",
+                    "status": "Rejected",
+                    "message": "Your application for 'Maths Teacher' has been rejected. Remarks: uiuii",
+                    "job_id": 5,
+                    "application_id": 6,
+                    "read": false,
+                    "created_at": "2026-08-25T22:40:04.129480"
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "name": "Aneeq Mehmood",
+            "email": "aniqmeh9003@gmail.com",
+            "password": "mighty",
+            "role": "job_seeker",
+            "favorites": [],
+            "notifications": []
+        },
+        {
+            "id": 5,
+            "name": "Haris",
+            "email": "harismeh9000@gmail.com",
+            "password": "mighty",
+            "role": "job_poster",
+            "favorites": [],
+            "notifications": [
+                {
+                    "id": 1,
+                    "type": "application",
+                    "status": "Applied",
+                    "message": "Aneeq Mehmood applied for your job 'Graphic Designer1234567890'.",
+                    "job_id": 3,
+                    "application_id": 4,
+                    "read": false,
+                    "created_at": "2026-08-23T01:28:25.793112"
+                }
+            ]
+        },
+        {
+            "id": 6,
+            "name": "asim",
+            "email": "asimmeh111@gmail.com",
+            "password": "mighty",
+            "role": "job_poster",
+            "favorites": [],
+            "notifications": [
+                {
+                    "id": 1,
+                    "type": "application",
+                    "status": "Applied",
+                    "message": "Aneeq Mehmood applied for your job 'Maths Teacher'.",
+                    "job_id": 5,
+                    "application_id": 6,
+                    "read": false,
+                    "created_at": "2026-08-25T19:06:05.078728"
+                },
+                {
+                    "id": 2,
+                    "type": "application",
+                    "status": "Applied",
+                    "message": "haris applied for your job 'Software Engneer'.",
+                    "job_id": 18,
+                    "application_id": 11,
+                    "read": false,
+                    "created_at": "2026-08-25T20:46:42.838196"
+                },
+                {
+                    "id": 3,
+                    "type": "application",
+                    "status": "Applied",
+                    "message": "haris applied for your job 'Hotel Manager'.",
+                    "job_id": 19,
+                    "application_id": 12,
+                    "read": false,
+                    "created_at": "2026-08-25T20:46:56.927915"
+                },
+                {
+                    "id": 4,
+                    "type": "application",
+                    "status": "Applied",
+                    "message": "haris applied for your job 'Clerk'.",
+                    "job_id": 20,
+                    "application_id": 13,
+                    "read": false,
+                    "created_at": "2026-08-25T20:47:10.087378"
+                }
+            ]
+        },
+        {
+            "id": 7,
+            "name": "haris",
+            "email": "harismeh111@gmail.com",
+            "password": "mighty",
+            "role": "job_seeker",
+            "favorites": [],
+            "notifications": [
+                {
+                    "id": 1,
+                    "type": "application_status",
+                    "status": "Shortlisted",
+                    "message": "You have been shortlisted for 'Graphic Designer'. Interview: 2026-09-23 at 15:35.",
+                    "job_id": 6,
+                    "application_id": 7,
+                    "read": false,
+                    "created_at": "2026-09-13T01:35:02.607045"
+                }
+            ]
+        }
+    ],
+    "jobs": [
+        {
+            "id": 3,
+            "title": "Graphic Designer1234567890",
+            "company": "234345",
+            "category": "ghgghhghg",
+            "location": "lahore",
+            "salary": "50000",
+            "description": "hu",
+            "poster_id": 5
+        },
+        {
+            "id": 5,
+            "title": "Maths Teacher",
+            "company": "Jps",
+            "category": "Teacher",
+            "location": "Lahore",
+            "salary": "50000",
+            "description": "We are looking for a motivated and reliable individual to join our team. This opportunity is open to candidates who are passionate about their work, willing to learn, and committed to delivering high-quality results. The selected candidate will be responsible for performing assigned duties, working effectively with others, meeting deadlines, and contributing positively to the organization. Candidates with relevant skills, a positive attitude, and a strong willingness to grow are encouraged to apply.",
+            "poster_id": 6
+        },
+        {
+            "id": 6,
+            "title": "Graphic Designer",
+            "company": "spotofy",
+            "category": "Graphic design",
+            "location": "Karachi",
+            "salary": "25000",
+            "description": "We are pleased to offer you a job opportunity that matches your skills, experience, and career goals. This position provides a supportive work environment, competitive benefits, opportunities for professional growth, and a chance to develop your abilities while contributing to the success of the organization. We believe this role will be a great fit for you and look forward to welcoming you to our team.",
+            "poster_id": 2
+        },
+        {
+            "id": 7,
+            "title": "Software engneer",
+            "company": "szabist",
+            "category": "engneer",
+            "location": "lahore",
+            "salary": "250000",
+            "description": "We are pleased to offer you a job opportunity that matches your skills, experience, and career goals. This position provides a supportive work environment, competitive benefits, opportunities for professional growth, and a chance to develop your abilities while contributing to the success of the organization. We believe this role will be a great fit for you and look forward to welcoming you to our team.",
+            "poster_id": 2
+        },
+        {
+            "id": 8,
+            "title": "cook",
+            "company": "PC",
+            "category": "cooking",
+            "location": "lahore",
+            "salary": "45000",
+            "description": "We are pleased to offer you a job opportunity that matches your skills, experience, and career goals. This position provides a supportive work environment, competitive benefits, opportunities for professional growth, and a chance to develop your abilities while contributing to the success of the organization. We believe this role will be a great fit for you and look forward to welcoming you to our team.",
+            "poster_id": 2
+        },
+        {
+            "id": 9,
+            "title": "Python Developer",
+            "company": "flyrank",
+            "category": "Developer",
+            "location": "lahore",
+            "salary": "50000",
+            "description": "We are pleased to offer you a job opportunity that matches your skills, experience, and career goals. This position provides a supportive work environment, competitive benefits, opportunities for professional growth, and a chance to develop your abilities while contributing to the success of the organization. We believe this role will be a great fit for you and look forward to welcoming you to our team.",
+            "poster_id": 2
+        },
+        {
+            "id": 10,
+            "title": "Hotel manager",
+            "company": "PC",
+            "category": "Manager",
+            "location": "lahore",
+            "salary": "90000",
+            "description": "We are pleased to offer you a job opportunity that matches your skills, experience, and career goals. This position provides a supportive work environment, competitive benefits, opportunities for professional growth, and a chance to develop your abilities while contributing to the success of the organization. We believe this role will be a great fit for you and look forward to welcoming you to our team.",
+            "poster_id": 2
+        },
+        {
+            "id": 11,
+            "title": "accountant",
+            "company": "PC",
+            "category": "Accountant",
+            "location": "Lahore",
+            "salary": "50000",
+            "description": "We are pleased to offer you a job opportunity that matches your skills, experience, and career goals. This position provides a supportive work environment, competitive benefits, opportunities for professional growth, and a chance to develop your abilities while contributing to the success of the organization. We believe this role will be a great fit for you and look forward to welcoming you to our team.",
+            "poster_id": 2
+        },
+        {
+            "id": 12,
+            "title": "clerk",
+            "company": "numl",
+            "category": "Clerk",
+            "location": "lahore",
+            "salary": "25000",
+            "description": "We are pleased to offer you a job opportunity that matches your skills, experience, and career goals. This position provides a supportive work environment, competitive benefits, opportunities for professional growth, and a chance to develop your abilities while contributing to the success of the organization. We believe this role will be a great fit for you and look forward to welcoming you to our team.",
+            "poster_id": 2
+        },
+        {
+            "id": 13,
+            "title": "Web Developr",
+            "company": "Flyrank",
+            "category": "Developer",
+            "location": "lahore",
+            "salary": "350000",
+            "description": "We are pleased to offer you a job opportunity that matches your skills, experience, and career goals. This position provides a supportive work environment, competitive benefits, opportunities for professional growth, and a chance to develop your abilities while contributing to the success of the organization. We believe this role will be a great fit for you and look forward to welcoming you to our team.",
+            "poster_id": 2
+        },
+        {
+            "id": 14,
+            "title": "Graphic Designer",
+            "company": "Pips",
+            "category": "Designer",
+            "location": "islamabad",
+            "salary": "50000",
+            "description": "We are pleased to offer you a job opportunity that matches your skills, experience, and career goals. This position provides a supportive work environment, competitive benefits, opportunities for professional growth, and a chance to develop your abilities while contributing to the success of the organization. We believe this role will be a great fit for you and look forward to welcoming you to our team.",
+            "poster_id": 6
+        },
+        {
+            "id": 15,
+            "title": "Maths teacher",
+            "company": "Pips",
+            "category": "Teacher",
+            "location": "islamabad",
+            "salary": "35000",
+            "description": "We are pleased to offer you a job opportunity that matches your skills, experience, and career goals. This position provides a supportive work environment, competitive benefits, opportunities for professional growth, and a chance to develop your abilities while contributing to the success of the organization. We believe this role will be a great fit for you and look forward to welcoming you to our team.",
+            "poster_id": 6
+        },
+        {
+            "id": 16,
+            "title": "Science Teacher",
+            "company": "JPS",
+            "category": "Teacher",
+            "location": "karachi",
+            "salary": "34000",
+            "description": "We are pleased to offer you a job opportunity that matches your skills, experience, and career goals. This position provides a supportive work environment, competitive benefits, opportunities for professional growth, and a chance to develop your abilities while contributing to the success of the organization. We believe this role will be a great fit for you and look forward to welcoming you to our team.",
+            "poster_id": 6
+        },
+        {
+            "id": 17,
+            "title": "Python Developer",
+            "company": "High rank",
+            "category": "Developer",
+            "location": "lahore",
+            "salary": "50000",
+            "description": "We are pleased to offer you a job opportunity that matches your skills, experience, and career goals. This position provides a supportive work environment, competitive benefits, opportunities for professional growth, and a chance to develop your abilities while contributing to the success of the organization. We believe this role will be a great fit for you and look forward to welcoming you to our team.",
+            "poster_id": 6
+        },
+        {
+            "id": 18,
+            "title": "Software Engneer",
+            "company": "OLI",
+            "category": "Developer",
+            "location": "karachi",
+            "salary": "67000",
+            "description": "We are pleased to offer you a job opportunity that matches your skills, experience, and career goals. This position provides a supportive work environment, competitive benefits, opportunities for professional growth, and a chance to develop your abilities while contributing to the success of the organization. We believe this role will be a great fit for you and look forward to welcoming you to our team.",
+            "poster_id": 6
+        },
+        {
+            "id": 19,
+            "title": "Hotel Manager",
+            "company": "KFC",
+            "category": "Manager",
+            "location": "lahore",
+            "salary": "50000",
+            "description": "We are pleased to offer you a job opportunity that matches your skills, experience, and career goals. This position provides a supportive work environment, competitive benefits, opportunities for professional growth, and a chance to develop your abilities while contributing to the success of the organization. We believe this role will be a great fit for you and look forward to welcoming you to our team.",
+            "poster_id": 6
+        },
+        {
+            "id": 20,
+            "title": "Clerk",
+            "company": "jps",
+            "category": "Clerk",
+            "location": "lahore",
+            "salary": "25000",
+            "description": "We are pleased to offer you a job opportunity that matches your skills, experience, and career goals. This position provides a supportive work environment, competitive benefits, opportunities for professional growth, and a chance to develop your abilities while contributing to the success of the organization. We believe this role will be a great fit for you and look forward to welcoming you to our team.",
+            "poster_id": 6
+        }
+    ],
+    "applications": [
+        {
+            "id": 1,
+            "job_id": 1,
+            "user_id": 1,
+            "resume_id": 1,
+            "applicant_name": "Aneeq Mehmood",
+            "applicant_email": "aniqmeh9002@gmail.com",
+            "contact": "123456789",
+            "introduction": "ji",
+            "status": "Rejected",
+            "salary": "",
+            "interview_date": "",
+            "interview_time": "",
+            "remarks": "klkl",
+            "job_snapshot": {
+                "id": 1,
+                "title": "Graphic Designer",
+                "company": "wesdrftgyhui",
+                "category": "234df",
+                "location": "2345678",
+                "salary": "1234567",
+                "description": "12345678",
+                "poster_id": 2
+            }
+        },
+        {
+            "id": 2,
+            "job_id": 1,
+            "user_id": 3,
+            "resume_id": 2,
+            "applicant_name": "Aneeq Mehmood",
+            "applicant_email": "aniqmeh9000@gmail.com",
+            "contact": "1234567890",
+            "introduction": "hi",
+            "status": "Rejected",
+            "salary": "",
+            "interview_date": "",
+            "interview_time": "",
+            "remarks": "hi",
+            "job_snapshot": {
+                "id": 1,
+                "title": "Graphic Designer",
+                "company": "wesdrftgyhui",
+                "category": "234df",
+                "location": "2345678",
+                "salary": "1234567",
+                "description": "12345678",
+                "poster_id": 2
+            }
+        },
+        {
+            "id": 3,
+            "job_id": 2,
+            "user_id": 3,
+            "resume_id": 4,
+            "job_snapshot": {
+                "id": 2,
+                "title": "Graphic Designererfghjkl;",
+                "company": "klklklkl",
+                "category": "bvhbjhjkjk",
+                "location": "hjhj",
+                "salary": "567890",
+                "description": "jhj",
+                "poster_id": 2
+            },
+            "applicant_name": "Aneeq Mehmood",
+            "applicant_email": "aniqmeh9000@gmail.com",
+            "contact": "45",
+            "introduction": "jkjkj",
+            "status": "Rejected",
+            "salary": "",
+            "interview_date": "",
+            "interview_time": "",
+            "remarks": "kl",
+            "created_at": "2026-08-23T01:25:34.849960"
+        },
+        {
+            "id": 4,
+            "job_id": 3,
+            "user_id": 3,
+            "resume_id": 5,
+            "job_snapshot": {
+                "id": 3,
+                "title": "Graphic Designer1234567890",
+                "company": "234345",
+                "category": "ghgghhghg",
+                "location": "lahore",
+                "salary": "50000",
+                "description": "hu",
+                "poster_id": 5
+            },
+            "applicant_name": "Aneeq Mehmood",
+            "applicant_email": "aniqmeh9000@gmail.com",
+            "contact": "23456789",
+            "introduction": "kjkjkjk",
+            "status": "Applied",
+            "salary": "",
+            "interview_date": "",
+            "interview_time": "",
+            "remarks": "",
+            "created_at": "2026-08-23T01:28:25.792958"
+        },
+        {
+            "id": 5,
+            "job_id": 4,
+            "user_id": 3,
+            "resume_id": 7,
+            "job_snapshot": {
+                "id": 4,
+                "title": "Graphic Designer1q2w3e",
+                "company": "ftghj",
+                "category": "fghjk",
+                "location": "bjjjj",
+                "salary": "7676",
+                "description": "567",
+                "poster_id": 2
+            },
+            "applicant_name": "Aneeq Mehmood",
+            "applicant_email": "aniqmeh9000@gmail.com",
+            "contact": "1234567",
+            "introduction": "hi",
+            "status": "Applied",
+            "salary": "",
+            "interview_date": "",
+            "interview_time": "",
+            "remarks": "",
+            "created_at": "2026-08-23T01:52:55.440326"
+        },
+        {
+            "id": 6,
+            "job_id": 5,
+            "user_id": 3,
+            "resume_id": 10,
+            "job_snapshot": {
+                "id": 5,
+                "title": "Maths Teacher",
+                "company": "Jps",
+                "category": "Teacher",
+                "location": "Lahore",
+                "salary": "50000",
+                "description": "We are looking for a motivated and reliable individual to join our team. This opportunity is open to candidates who are passionate about their work, willing to learn, and committed to delivering high-quality results. The selected candidate will be responsible for performing assigned duties, working effectively with others, meeting deadlines, and contributing positively to the organization. Candidates with relevant skills, a positive attitude, and a strong willingness to grow are encouraged to apply.",
+                "poster_id": 6
+            },
+            "applicant_name": "Aneeq Mehmood",
+            "applicant_email": "aniqmeh9000@gmail.com",
+            "contact": "1234567890-=",
+            "introduction": "hi",
+            "status": "Rejected",
+            "salary": "",
+            "interview_date": "",
+            "interview_time": "",
+            "remarks": "uiuii",
+            "created_at": "2026-08-25T19:06:05.078513"
+        },
+        {
+            "id": 7,
+            "job_id": 6,
+            "user_id": 7,
+            "resume_id": 11,
+            "job_snapshot": {
+                "id": 6,
+                "title": "Graphic Designer",
+                "company": "spotofy",
+                "category": "Graphic design",
+                "location": "Karachi",
+                "salary": "25000",
+                "description": "We are pleased to offer you a job opportunity that matches your skills, experience, and career goals. This position provides a supportive work environment, competitive benefits, opportunities for professional growth, and a chance to develop your abilities while contributing to the success of the organization. We believe this role will be a great fit for you and look forward to welcoming you to our team.",
+                "poster_id": 2
+            },
+            "applicant_name": "haris",
+            "applicant_email": "harismeh111@gmail.com",
+            "contact": "1234567890",
+            "introduction": "I am writing to express my interest in applying for a suitable position within your organization. I am hardworking, motivated, and eager to use my skills and experience to contribute positively to your team. I am confident that I can learn quickly, work responsibly, and adapt to new challenges. I would appreciate the opportunity to discuss any available position that matches my qualifications and look forward to hearing from you.",
+            "status": "Shortlisted",
+            "salary": "",
+            "interview_date": "2026-09-23",
+            "interview_time": "15:35",
+            "remarks": "Technical Interview",
+            "created_at": "2026-08-25T20:45:14.780038"
+        },
+        {
+            "id": 8,
+            "job_id": 7,
+            "user_id": 7,
+            "resume_id": 12,
+            "job_snapshot": {
+                "id": 7,
+                "title": "Software engneer",
+                "company": "szabist",
+                "category": "engneer",
+                "location": "lahore",
+                "salary": "250000",
+                "description": "We are pleased to offer you a job opportunity that matches your skills, experience, and career goals. This position provides a supportive work environment, competitive benefits, opportunities for professional growth, and a chance to develop your abilities while contributing to the success of the organization. We believe this role will be a great fit for you and look forward to welcoming you to our team.",
+                "poster_id": 2
+            },
+            "applicant_name": "haris",
+            "applicant_email": "harismeh111@gmail.com",
+            "contact": "1234567890-=",
+            "introduction": "I am writing to express my interest in applying for a suitable position within your organization. I am hardworking, motivated, and eager to use my skills and experience to contribute positively to your team. I am confident that I can learn quickly, work responsibly, and adapt to new challenges. I would appreciate the opportunity to discuss any available position that matches my qualifications and look forward to hearing from you.",
+            "status": "Applied",
+            "salary": "",
+            "interview_date": "",
+            "interview_time": "",
+            "remarks": "",
+            "created_at": "2026-08-25T20:45:58.045917"
+        },
+        {
+            "id": 9,
+            "job_id": 10,
+            "user_id": 7,
+            "resume_id": 13,
+            "job_snapshot": {
+                "id": 10,
+                "title": "Hotel manager",
+                "company": "PC",
+                "category": "Manager",
+                "location": "lahore",
+                "salary": "90000",
+                "description": "We are pleased to offer you a job opportunity that matches your skills, experience, and career goals. This position provides a supportive work environment, competitive benefits, opportunities for professional growth, and a chance to develop your abilities while contributing to the success of the organization. We believe this role will be a great fit for you and look forward to welcoming you to our team.",
+                "poster_id": 2
+            },
+            "applicant_name": "haris",
+            "applicant_email": "harismeh111@gmail.com",
+            "contact": "12345678",
+            "introduction": "I am writing to express my interest in applying for a suitable position within your organization. I am hardworking, motivated, and eager to use my skills and experience to contribute positively to your team. I am confident that I can learn quickly, work responsibly, and adapt to new challenges. I would appreciate the opportunity to discuss any available position that matches my qualifications and look forward to hearing from you.",
+            "status": "Applied",
+            "salary": "",
+            "interview_date": "",
+            "interview_time": "",
+            "remarks": "",
+            "created_at": "2026-08-25T20:46:12.499150"
+        },
+        {
+            "id": 10,
+            "job_id": 9,
+            "user_id": 7,
+            "resume_id": 14,
+            "job_snapshot": {
+                "id": 9,
+                "title": "Python Developer",
+                "company": "flyrank",
+                "category": "Developer",
+                "location": "lahore",
+                "salary": "50000",
+                "description": "We are pleased to offer you a job opportunity that matches your skills, experience, and career goals. This position provides a supportive work environment, competitive benefits, opportunities for professional growth, and a chance to develop your abilities while contributing to the success of the organization. We believe this role will be a great fit for you and look forward to welcoming you to our team.",
+                "poster_id": 2
+            },
+            "applicant_name": "haris",
+            "applicant_email": "harismeh111@gmail.com",
+            "contact": "12345678",
+            "introduction": "I am writing to express my interest in applying for a suitable position within your organization. I am hardworking, motivated, and eager to use my skills and experience to contribute positively to your team. I am confident that I can learn quickly, work responsibly, and adapt to new challenges. I would appreciate the opportunity to discuss any available position that matches my qualifications and look forward to hearing from you.",
+            "status": "Applied",
+            "salary": "",
+            "interview_date": "",
+            "interview_time": "",
+            "remarks": "",
+            "created_at": "2026-08-25T20:46:28.899921"
+        },
+        {
+            "id": 11,
+            "job_id": 18,
+            "user_id": 7,
+            "resume_id": 15,
+            "job_snapshot": {
+                "id": 18,
+                "title": "Software Engneer",
+                "company": "OLI",
+                "category": "Developer",
+                "location": "karachi",
+                "salary": "67000",
+                "description": "We are pleased to offer you a job opportunity that matches your skills, experience, and career goals. This position provides a supportive work environment, competitive benefits, opportunities for professional growth, and a chance to develop your abilities while contributing to the success of the organization. We believe this role will be a great fit for you and look forward to welcoming you to our team.",
+                "poster_id": 6
+            },
+            "applicant_name": "haris",
+            "applicant_email": "harismeh111@gmail.com",
+            "contact": "1234567",
+            "introduction": "I am writing to express my interest in applying for a suitable position within your organization. I am hardworking, motivated, and eager to use my skills and experience to contribute positively to your team. I am confident that I can learn quickly, work responsibly, and adapt to new challenges. I would appreciate the opportunity to discuss any available position that matches my qualifications and look forward to hearing from you.",
+            "status": "Applied",
+            "salary": "",
+            "interview_date": "",
+            "interview_time": "",
+            "remarks": "",
+            "created_at": "2026-08-25T20:46:42.838151"
+        },
+        {
+            "id": 12,
+            "job_id": 19,
+            "user_id": 7,
+            "resume_id": 16,
+            "job_snapshot": {
+                "id": 19,
+                "title": "Hotel Manager",
+                "company": "KFC",
+                "category": "Manager",
+                "location": "lahore",
+                "salary": "50000",
+                "description": "We are pleased to offer you a job opportunity that matches your skills, experience, and career goals. This position provides a supportive work environment, competitive benefits, opportunities for professional growth, and a chance to develop your abilities while contributing to the success of the organization. We believe this role will be a great fit for you and look forward to welcoming you to our team.",
+                "poster_id": 6
+            },
+            "applicant_name": "haris",
+            "applicant_email": "harismeh111@gmail.com",
+            "contact": "1234567890",
+            "introduction": "I am writing to express my interest in applying for a suitable position within your organization. I am hardworking, motivated, and eager to use my skills and experience to contribute positively to your team. I am confident that I can learn quickly, work responsibly, and adapt to new challenges. I would appreciate the opportunity to discuss any available position that matches my qualifications and look forward to hearing from you.",
+            "status": "Applied",
+            "salary": "",
+            "interview_date": "",
+            "interview_time": "",
+            "remarks": "",
+            "created_at": "2026-08-25T20:46:56.927874"
+        },
+        {
+            "id": 13,
+            "job_id": 20,
+            "user_id": 7,
+            "resume_id": 17,
+            "job_snapshot": {
+                "id": 20,
+                "title": "Clerk",
+                "company": "jps",
+                "category": "Clerk",
+                "location": "lahore",
+                "salary": "25000",
+                "description": "We are pleased to offer you a job opportunity that matches your skills, experience, and career goals. This position provides a supportive work environment, competitive benefits, opportunities for professional growth, and a chance to develop your abilities while contributing to the success of the organization. We believe this role will be a great fit for you and look forward to welcoming you to our team.",
+                "poster_id": 6
+            },
+            "applicant_name": "haris",
+            "applicant_email": "harismeh111@gmail.com",
+            "contact": "1234567890",
+            "introduction": "I am writing to express my interest in applying for a suitable position within your organization. I am hardworking, motivated, and eager to use my skills and experience to contribute positively to your team. I am confident that I can learn quickly, work responsibly, and adapt to new challenges. I would appreciate the opportunity to discuss any available position that matches my qualifications and look forward to hearing from you.",
+            "status": "Applied",
+            "salary": "",
+            "interview_date": "",
+            "interview_time": "",
+            "remarks": "",
+            "created_at": "2026-08-25T20:47:10.087282"
+        }
+    ],
+    "resumes": [
+        {
+            "id": 1,
+            "user_id": 1,
+            "filename": "application_resume_1_1.pdf",
+            "skills": "",
+            "introduction": "ji"
+        },
+        {
+            "id": 2,
+            "user_id": 3,
+            "filename": "application_resume_3_2.pdf",
+            "skills": "",
+            "introduction": "hi"
+        },
+        {
+            "id": 3,
+            "user_id": 3,
+            "filename": "resume_3_3.pdf",
+            "original_filename": "Aneeq_Mehmood_Resume.pdf",
+            "skills": "python",
+            "introduction": "qwertyujbvcdswertyujk,.,m",
+            "created_at": "2026-08-23T01:22:48.274324",
+            "profile_resume": true
+        },
+        {
+            "id": 4,
+            "user_id": 3,
+            "filename": "application_resume_3_4.pdf",
+            "original_filename": "Raja_Aizaz_Khan_Resume_2.pdf",
+            "skills": "",
+            "introduction": "jkjkj"
+        },
+        {
+            "id": 5,
+            "user_id": 3,
+            "filename": "application_resume_3_5.pdf",
+            "original_filename": "Raja_Aizaz_Khan_Resume_2.pdf",
+            "skills": "",
+            "introduction": "kjkjkjk"
+        },
+        {
+            "id": 6,
+            "user_id": 3,
+            "filename": "resume_3_6.pdf",
+            "original_filename": "Raja_Aizaz_Khan_Resume_2.pdf",
+            "skills": "file",
+            "introduction": "hi",
+            "created_at": "2026-08-23T01:50:46.844002",
+            "profile_resume": true
+        },
+        {
+            "id": 7,
+            "user_id": 3,
+            "filename": "application_resume_3_7.pdf",
+            "original_filename": "Aneeq_Mehmood_Resume.pdf",
+            "skills": "",
+            "introduction": "hi"
+        },
+        {
+            "id": 8,
+            "user_id": 3,
+            "filename": "resume_3_8.pdf",
+            "original_filename": "Aneeq_Mehmood_Resume.pdf",
+            "skills": "fh",
+            "introduction": "jkj",
+            "created_at": "2026-08-25T19:01:38.680555",
+            "profile_resume": true
+        },
+        {
+            "id": 9,
+            "user_id": 3,
+            "filename": "resume_3_9.pdf",
+            "original_filename": "Aneeq_Mehmood_Resume.pdf",
+            "skills": "fh",
+            "introduction": "jkj",
+            "created_at": "2026-08-25T19:01:40.620117",
+            "profile_resume": true
+        },
+        {
+            "id": 10,
+            "user_id": 3,
+            "filename": "application_resume_3_10.pdf",
+            "original_filename": "Aneeq_Mehmood_Resume.pdf",
+            "skills": "",
+            "introduction": "hi"
+        },
+        {
+            "id": 11,
+            "user_id": 7,
+            "filename": "application_resume_7_11.pdf",
+            "original_filename": "Aneeq_Mehmood_Resume.pdf",
+            "skills": "",
+            "introduction": "I am writing to express my interest in applying for a suitable position within your organization. I am hardworking, motivated, and eager to use my skills and experience to contribute positively to your team. I am confident that I can learn quickly, work responsibly, and adapt to new challenges. I would appreciate the opportunity to discuss any available position that matches my qualifications and look forward to hearing from you."
+        },
+        {
+            "id": 12,
+            "user_id": 7,
+            "filename": "application_resume_7_12.pdf",
+            "original_filename": "Aneeq_Mehmood_Resume.pdf",
+            "skills": "",
+            "introduction": "I am writing to express my interest in applying for a suitable position within your organization. I am hardworking, motivated, and eager to use my skills and experience to contribute positively to your team. I am confident that I can learn quickly, work responsibly, and adapt to new challenges. I would appreciate the opportunity to discuss any available position that matches my qualifications and look forward to hearing from you."
+        },
+        {
+            "id": 13,
+            "user_id": 7,
+            "filename": "application_resume_7_13.pdf",
+            "original_filename": "Raja_Aizaz_Khan_Resume_2.pdf",
+            "skills": "",
+            "introduction": "I am writing to express my interest in applying for a suitable position within your organization. I am hardworking, motivated, and eager to use my skills and experience to contribute positively to your team. I am confident that I can learn quickly, work responsibly, and adapt to new challenges. I would appreciate the opportunity to discuss any available position that matches my qualifications and look forward to hearing from you."
+        },
+        {
+            "id": 14,
+            "user_id": 7,
+            "filename": "application_resume_7_14.pdf",
+            "original_filename": "Raja_Aizaz_Khan_Resume_2.pdf",
+            "skills": "",
+            "introduction": "I am writing to express my interest in applying for a suitable position within your organization. I am hardworking, motivated, and eager to use my skills and experience to contribute positively to your team. I am confident that I can learn quickly, work responsibly, and adapt to new challenges. I would appreciate the opportunity to discuss any available position that matches my qualifications and look forward to hearing from you."
+        },
+        {
+            "id": 15,
+            "user_id": 7,
+            "filename": "application_resume_7_15.pdf",
+            "original_filename": "Raja_Aizaz_Khan_Resume_2.pdf",
+            "skills": "",
+            "introduction": "I am writing to express my interest in applying for a suitable position within your organization. I am hardworking, motivated, and eager to use my skills and experience to contribute positively to your team. I am confident that I can learn quickly, work responsibly, and adapt to new challenges. I would appreciate the opportunity to discuss any available position that matches my qualifications and look forward to hearing from you."
+        },
+        {
+            "id": 16,
+            "user_id": 7,
+            "filename": "application_resume_7_16.pdf",
+            "original_filename": "Aneeq_Mehmood_Resume.pdf",
+            "skills": "",
+            "introduction": "I am writing to express my interest in applying for a suitable position within your organization. I am hardworking, motivated, and eager to use my skills and experience to contribute positively to your team. I am confident that I can learn quickly, work responsibly, and adapt to new challenges. I would appreciate the opportunity to discuss any available position that matches my qualifications and look forward to hearing from you."
+        },
+        {
+            "id": 17,
+            "user_id": 7,
+            "filename": "application_resume_7_17.pdf",
+            "original_filename": "Raja_Aizaz_Khan_Resume_2.pdf",
+            "skills": "",
+            "introduction": "I am writing to express my interest in applying for a suitable position within your organization. I am hardworking, motivated, and eager to use my skills and experience to contribute positively to your team. I am confident that I can learn quickly, work responsibly, and adapt to new challenges. I would appreciate the opportunity to discuss any available position that matches my qualifications and look forward to hearing from you."
+        },
+        {
+            "id": 18,
+            "user_id": 3,
+            "filename": "resume_3_18.pdf",
+            "original_filename": "Aneeq_Mehmood_Resume.pdf",
+            "skills": "python",
+            "introduction": "wrtyrturuyrytuy",
+            "created_at": "2026-08-25T22:43:38.094565",
+            "profile_resume": true
+        }
+    ]
+}

@@ -1,0 +1,1883 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>JobSphere</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<nav class="navbar">
+
+    <div class="logo">
+        Job<span>Sphere</span>
+    </div>
+
+    <div class="nav-right">
+
+        <span id="welcomeUser"></span>
+
+        <button
+            id="logoutBtn"
+            class="nav-btn logout-btn"
+            onclick="logout()"
+            style="display:none;">
+
+            Logout
+
+        </button>
+
+    </div>
+
+</nav>
+
+
+<!-- =====================================================
+     START PAGE
+===================================================== -->
+
+<section id="startPage" class="page">
+
+    <div class="hero">
+
+        <div class="hero-content">
+
+            <div class="small-label">
+                YOUR CAREER • YOUR FUTURE
+            </div>
+
+            <h1>
+                Find your next
+                <span>opportunity.</span>
+            </h1>
+
+            <p>
+                Connect talented people with amazing
+                opportunities. Find a job or discover
+                your next great candidate.
+            </p>
+
+        </div>
+
+
+        <div class="role-container">
+
+            <h2>
+                What are you looking for?
+            </h2>
+
+            <p>
+                Choose an option to continue
+            </p>
+
+            <div class="role-cards">
+
+                <div class="role-card seeker-card"
+                     onclick="chooseRole('job_seeker')">
+
+                    <div class="role-icon">
+                        👤
+                    </div>
+
+                    <h3>
+                        Looking for a Job
+                    </h3>
+
+                    <p>
+                        Search jobs, apply for positions,
+                        save favorites and upload your resume.
+                    </p>
+
+                    <button>
+                        Find Jobs →
+                    </button>
+
+                </div>
+
+
+                <div class="role-card poster-card"
+                     onclick="chooseRole('job_poster')">
+
+                    <div class="role-icon">
+                        💼
+                    </div>
+
+                    <h3>
+                        Hire a Professional
+                    </h3>
+
+                    <p>
+                        Post opportunities and discover
+                        talented candidates for your Organization.
+                    </p>
+
+                    <button>
+                        Find Candidates →
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     AUTH PAGE
+===================================================== -->
+
+<section id="authPage"
+         class="page hidden">
+
+    <div class="auth-wrapper">
+
+        <button
+            class="back-button"
+            onclick="backToStart()">
+
+            ← Back
+
+        </button>
+
+        <div class="auth-box">
+
+            <div class="auth-brand">
+
+                <div class="auth-logo">
+                    Job<span>Sphere</span>
+                </div>
+
+                <div class="auth-badge">
+                    SECURE PORTAL
+                </div>
+
+            </div>
+
+            <div class="auth-intro">
+
+                <div class="auth-icon">
+                    🔐
+                </div>
+
+                <div>
+
+                    <h1 id="authTitle">
+                        Login
+                    </h1>
+
+                    <p id="authSubtitle">
+                        Welcome back.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="auth-tabs">
+
+                <button
+                    id="loginTab"
+                    class="active"
+                    onclick="showLogin()">
+
+                    Login
+
+                </button>
+
+                <button
+                    id="signupTab"
+                    onclick="showSignup()">
+
+                    Sign Up
+
+                </button>
+
+            </div>
+
+
+            <!-- LOGIN -->
+
+            <div id="loginForm"
+                 class="auth-form-section">
+
+                <div class="form-section-heading">
+
+                    <span class="section-number">
+                        01
+                    </span>
+
+                    <div>
+
+                        <h3>
+                            Welcome Back
+                        </h3>
+
+                        <p>
+                            Enter your account details
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <label>Email</label>
+
+                <input
+                    type="email"
+                    id="loginEmail"
+                    placeholder="Enter your email">
+
+                <div id="loginEmailValidation"></div>
+
+
+                <label>Password</label>
+
+                <input
+                    type="password"
+                    id="loginPassword"
+                    placeholder="Enter your password">
+
+                <div id="loginPasswordValidation"></div>
+
+
+                <div id="loginError"
+                     class="form-error-box"></div>
+
+
+                <button
+                    class="main-btn auth-submit-btn"
+                    onclick="login()">
+
+                    <span>
+                        Login to Portal
+                    </span>
+
+                    <span class="btn-arrow">
+                        →
+                    </span>
+
+                </button>
+
+            </div>
+
+
+            <!-- SIGNUP -->
+
+            <div id="signupForm"
+                 class="hidden auth-form-section">
+
+                <div class="form-section-heading">
+
+                    <span class="section-number">
+                        01
+                    </span>
+
+                    <div>
+
+                        <h3>
+                            Create Your Account
+                        </h3>
+
+                        <p>
+                            Join JobSphere today
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <label>Full Name</label>
+
+                <input
+                    type="text"
+                    id="signupName"
+                    placeholder="Your full name">
+
+                <div id="signupNameValidation"></div>
+
+
+                <label>Email</label>
+
+                <input
+                    type="email"
+                    id="signupEmail"
+                    placeholder="Your email">
+
+                <div id="signupEmailValidation"></div>
+
+
+                <label>Password</label>
+
+                <input
+                    type="password"
+                    id="signupPassword"
+                    placeholder="Create password">
+
+                <div id="signupPasswordValidation"></div>
+
+
+                <div id="signupError"
+                     class="form-error-box"></div>
+
+
+                <button
+                    class="main-btn auth-submit-btn"
+                    onclick="signup()">
+
+                    <span>
+                        Create Account
+                    </span>
+
+                    <span class="btn-arrow">
+                        →
+                    </span>
+
+                </button>
+
+            </div>
+
+
+            <div class="auth-footer">
+
+                <span>
+                    Account type
+                </span>
+
+                <strong id="selectedRoleText">
+                    -
+                </strong>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     JOB SEEKER DASHBOARD
+===================================================== -->
+
+<section id="seekerPage"
+         class="dashboard hidden">
+
+
+    <div class="portal-header seeker-header">
+
+        <div class="portal-header-content">
+
+            <span class="small-label">
+                JOB SEEKER PORTAL
+            </span>
+
+            <h1>
+                Build your career.
+                <span>Find your opportunity.</span>
+            </h1>
+
+            <p>
+                Search opportunities, save the jobs you love,
+                apply with confidence and build your professional profile.
+            </p>
+
+        </div>
+
+
+        <div class="portal-stat-card">
+
+            <div class="stat-icon">
+                🎯
+            </div>
+
+            <div>
+
+                <strong>
+                    Career Center
+                </strong>
+
+                <span>
+                    Track your applications
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- SEEKER NAVIGATION -->
+
+    <div class="dashboard-nav">
+
+        <a href="#availableJobsSection"
+           class="dashboard-nav-btn active"
+           onclick="showSeekerSection('availableJobsSection', this)">
+
+            🔎
+            <span>Find Jobs</span>
+
+        </a>
+
+
+        <a href="#favoritesSection"
+           class="dashboard-nav-btn"
+           onclick="showSeekerSection('favoritesSection', this); loadFavorites();">
+
+            ❤️
+            <span>Favorites</span>
+
+        </a>
+
+
+        <a href="#applicationHistorySection"
+           class="dashboard-nav-btn"
+           onclick="showSeekerSection('applicationHistorySection', this); loadApplicationHistory();">
+
+            📋
+            <span>Applications</span>
+
+        </a>
+
+
+        <a href="#resumeSection"
+           class="dashboard-nav-btn"
+           onclick="showSeekerSection('resumeSection', this);">
+
+            📄
+            <span>My Resume</span>
+
+        </a>
+
+
+        <a href="#applicationStatusSection"
+           class="dashboard-nav-btn status-nav-btn"
+           onclick="showSeekerSection('applicationStatusSection', this); loadApplicationStatus();">
+
+            📊
+            <span>Application Status</span>
+
+        </a>
+
+
+        <!-- NEW NOTIFICATION NAVIGATION -->
+
+        <a href="#seekerNotificationSection"
+           class="dashboard-nav-btn"
+           onclick="showSeekerSection('seekerNotificationSection', this); loadSeekerNotifications();">
+
+            🔔
+            <span>Notifications</span>
+
+            <b id="seekerNotificationBadge"
+               class="nav-badge hidden">
+                0
+            </b>
+
+        </a>
+
+    </div>
+
+
+    <!-- =================================================
+         SEARCH / FIND JOBS
+    ================================================= -->
+
+    <section id="availableJobsSection"
+             class="dashboard-section seeker-content-section">
+
+        <div class="section-heading-large">
+
+            <div>
+
+                <span class="small-label">
+                    EXPLORE OPPORTUNITIES
+                </span>
+
+                <h2>
+                    Find Your Next Job
+                </h2>
+
+                <p>
+                    Search using any category, location or minimum salary.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="search-panel">
+
+            <div class="search-field">
+
+                <label>
+                    Category
+                </label>
+
+                <input
+                    id="jobSearchCategory"
+                    type="text"
+                    placeholder="e.g. Graphic Designer">
+
+            </div>
+
+
+            <div class="search-field">
+
+                <label>
+                    Location
+                </label>
+
+                <input
+                    id="jobSearchLocation"
+                    type="text"
+                    placeholder="e.g. Lahore">
+
+            </div>
+
+
+            <div class="search-field">
+
+                <label>
+                    Minimum Salary
+                </label>
+
+                <input
+                    id="jobSearchSalary"
+                    type="number"
+                    placeholder="e.g. 50000">
+
+            </div>
+
+
+            <button
+                class="search-btn"
+                onclick="searchJobs()">
+
+                🔎 Search
+
+            </button>
+
+        </div>
+
+
+        <div class="section-title">
+
+            <div>
+
+                <span class="small-label">
+                    JOB LISTINGS
+                </span>
+
+                <h2>
+                    Available Jobs
+                </h2>
+
+            </div>
+
+            <button
+                class="small-btn"
+                onclick="loadJobs()">
+
+                ↻ Show All
+
+            </button>
+
+        </div>
+
+
+        <div id="jobsContainer"
+             class="jobs-grid">
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
+         FAVORITES
+    ================================================= -->
+
+    <section id="favoritesSection"
+             class="dashboard-box dashboard-section-card seeker-content-section hidden-section">
+
+        <div class="section-card-header">
+
+            <div class="section-card-icon favorite-icon">
+                ❤️
+            </div>
+
+            <div>
+
+                <span class="small-label">
+                    SAVED JOBS
+                </span>
+
+                <h2>
+                    My Favorites
+                </h2>
+
+                <p>
+                    Jobs you saved for later.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <button
+            class="small-btn section-action-btn"
+            onclick="loadFavorites()">
+
+            ↻ Refresh Favorites
+
+        </button>
+
+
+        <div id="favoritesContainer">
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
+         APPLICATION HISTORY
+         STATUS IS NOT SHOWN HERE
+    ================================================= -->
+
+    <section id="applicationHistorySection"
+             class="dashboard-box dashboard-section-card seeker-content-section hidden-section">
+
+        <div class="section-card-header">
+
+            <div class="section-card-icon history-icon">
+                📋
+            </div>
+
+            <div>
+
+                <span class="small-label">
+                    YOUR ACTIVITY
+                </span>
+
+                <h2>
+                    Application History
+                </h2>
+
+                <p>
+                    View the jobs you have applied for.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <button
+            class="small-btn section-action-btn"
+            onclick="loadApplicationHistory()">
+
+            ↻ Refresh History
+
+        </button>
+
+
+        <div id="applicationHistory">
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
+         RESUME
+    ================================================= -->
+
+    <section id="resumeSection"
+             class="resume-upload-box seeker-content-section hidden-section">
+
+        <div class="resume-intro">
+
+            <span class="small-label">
+                PROFESSIONAL PROFILE
+            </span>
+
+            <h2>
+                Build Your Candidate Profile
+            </h2>
+
+            <p>
+                Upload your resume and introduce your skills.
+                Your profile can be viewed by job posters.
+            </p>
+
+        </div>
+
+
+        <div class="resume-form professional-form">
+
+            <div class="upload-area">
+
+                <div class="upload-icon">
+                    📄
+                </div>
+
+                <div>
+
+                    <strong>
+                        Upload Resume
+                    </strong>
+
+                    <p>
+                        PDF, DOC or DOCX
+                    </p>
+
+                </div>
+
+                <input
+                    type="file"
+                    id="resumeFile"
+                    accept=".pdf,.doc,.docx">
+
+            </div>
+
+
+            <label>
+                Your Skills
+            </label>
+
+            <textarea
+                id="resumeSkills"
+                placeholder="Example: Photoshop, Illustrator, HTML, CSS, Python..."></textarea>
+
+
+            <label>
+                Professional Introduction
+            </label>
+
+            <textarea
+                id="resumeIntroduction"
+                placeholder="Introduce yourself and describe your experience..."></textarea>
+
+
+            <button
+                class="main-btn"
+                onclick="uploadResume()">
+
+                📤 Upload Professional Profile
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
+         APPLICATION STATUS
+    ================================================= -->
+
+    <section id="applicationStatusSection"
+             class="application-status-page seeker-content-section hidden-section">
+
+        <div class="status-page-heading">
+
+            <div>
+
+                <span class="small-label">
+                    APPLICATION TRACKER
+                </span>
+
+                <h2>
+                    Application Status
+                </h2>
+
+                <p>
+                    Track every application and see your latest results.
+                </p>
+
+            </div>
+
+            <div class="status-page-icon">
+                📊
+            </div>
+
+        </div>
+
+
+        <!-- APPLICATION STATUS SEARCH -->
+
+        <div class="application-status-search">
+
+            <div class="search-field">
+
+                <label>
+                    Search Applications
+                </label>
+
+                <input
+    type="text"
+    id="applicationStatusSearch"
+    placeholder="Search applications..."
+>
+                
+            </div>
+
+        </div>
+
+
+        <!-- SHORT NOTE -->
+
+        <div class="status-instruction">
+
+           <br>
+            <p>
+               <strong> Click a category below to view all applications
+                in that status. 
+                </strong> 
+            </p>
+
+        </div>
+
+
+        <!-- STATUS TABLE -->
+
+        <div class="status-table-card">
+
+            <div class="status-table-header">
+
+                <span>
+                    APPLICATION STATUS
+                </span>
+
+                <span>
+                    TOTAL
+                </span>
+
+            </div>
+
+
+            <button
+                class="status-table-row total-row"
+                onclick="showStatusApplications('Total')">
+
+                <span>
+
+                    <b class="status-dot dot-total"></b>
+
+                    Total Jobs Applied
+
+                </span>
+
+                <strong id="statusTotal">
+                    0
+                </strong>
+
+            </button>
+
+
+            <button
+                class="status-table-row hired-row"
+                onclick="showStatusApplications('Hired')">
+
+                <span>
+
+                    <b class="status-dot dot-hired"></b>
+
+                    Hired
+
+                </span>
+
+                <strong id="statusHired">
+                    0
+                </strong>
+
+            </button>
+
+
+            <button
+                class="status-table-row shortlisted-row"
+                onclick="showStatusApplications('Shortlisted')">
+
+                <span>
+
+                    <b class="status-dot dot-shortlisted"></b>
+
+                    Shortlisted
+
+                </span>
+
+                <strong id="statusShortlisted">
+                    0
+                </strong>
+
+            </button>
+
+
+            <button
+                class="status-table-row review-row"
+                onclick="showStatusApplications('Under Review')">
+
+                <span>
+
+                    <b class="status-dot dot-review"></b>
+
+                    Under Review
+
+                </span>
+
+                <strong id="statusReview">
+                    0
+                </strong>
+
+            </button>
+
+
+            <button
+                class="status-table-row rejected-row"
+                onclick="showStatusApplications('Rejected')">
+
+                <span>
+
+                    <b class="status-dot dot-rejected"></b>
+
+                    Rejected
+
+                </span>
+
+                <strong id="statusRejected">
+                    0
+                </strong>
+
+            </button>
+
+        </div>
+
+
+        <div id="statusApplicationsResult"
+             class="status-applications-result hidden">
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
+         SEEKER NOTIFICATIONS
+    ================================================= -->
+
+    <section id="seekerNotificationSection"
+             class="dashboard-box dashboard-section-card notification-panel seeker-content-section hidden-section">
+
+        <div class="section-card-header">
+
+            <div class="section-card-icon history-icon">
+                🔔
+            </div>
+
+            <div>
+
+                <span class="small-label">
+                    UPDATES
+                </span>
+
+                <h2>
+                    Notifications
+                </h2>
+
+                <p>
+                    See updates about your applications,
+                    interviews and job activity.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <button
+            class="small-btn section-action-btn"
+            onclick="loadSeekerNotifications()">
+
+            ↻ Refresh Notifications
+
+        </button>
+
+
+        <div id="seekerNotifications">
+
+        </div>
+
+    </section>
+
+</section>
+
+
+<!-- =====================================================
+     JOB POSTER DASHBOARD
+===================================================== -->
+
+<section id="posterPage"
+         class="dashboard hidden">
+
+
+    <div class="portal-header poster-header">
+
+        <div class="portal-header-content">
+
+            <span class="small-label">
+                EMPLOYER PORTAL
+            </span>
+
+            <h1>
+                Find exceptional
+                <span>talent.</span>
+            </h1>
+
+            <p>
+                Publish opportunities, manage your job postings
+                and discover talented candidates.
+            </p>
+
+        </div>
+
+
+        <div class="portal-stat-card">
+
+            <div class="stat-icon">
+                🚀
+            </div>
+
+            <div>
+
+                <strong>
+                    Talent Center
+                </strong>
+
+                <span>
+                    Connect with your next great hire
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- POSTER NAVIGATION -->
+
+    <div class="dashboard-nav poster-nav">
+
+        <a href="#postJobSection"
+           class="dashboard-nav-btn active"
+           onclick="showPosterSection('postJobSection', this)">
+
+            🚀
+            <span>Post Job</span>
+
+        </a>
+
+
+        <a href="#myJobsSection"
+           class="dashboard-nav-btn"
+           onclick="showPosterSection('myJobsSection', this); loadMyJobs();">
+
+            📋
+            <span>My Jobs</span>
+
+        </a>
+
+
+        <a href="#candidateSection"
+           class="dashboard-nav-btn"
+           onclick="showPosterSection('candidateSection', this);">
+
+            👥
+            <span>Candidates</span>
+
+        </a>
+
+
+        <a href="#appliedCandidatesSection"
+           class="dashboard-nav-btn"
+           onclick="showPosterSection('appliedCandidatesSection', this); loadPosterApplications();">
+
+            📥
+            <span>Applied Candidates</span>
+
+            <b id="applicationBadge"
+               class="nav-badge hidden">
+                0
+            </b>
+
+        </a>
+
+
+        <a href="#notificationSection"
+           class="dashboard-nav-btn"
+           onclick="showPosterSection('notificationSection', this); loadNotifications();">
+
+            🔔
+            <span>Notifications</span>
+
+            <b id="notificationBadge"
+               class="nav-badge hidden">
+                0
+            </b>
+
+        </a>
+
+    </div>
+
+
+    <!-- =================================================
+         POST JOB
+    ================================================= -->
+
+    <section id="postJobSection"
+             class="post-job-box dashboard-section poster-content-section">
+
+        <div class="post-job-heading">
+
+            <div>
+
+                <span class="small-label">
+                    NEW OPPORTUNITY
+                </span>
+
+                <h2>
+                    Create a Job Listing
+                </h2>
+
+                <p>
+                    Tell talented professionals what you are looking for.
+                </p>
+
+            </div>
+
+            <div class="post-job-icon">
+                🚀
+            </div>
+
+        </div>
+
+
+        <div class="form-grid">
+
+            <div>
+
+                <label>
+                    Job Title
+                </label>
+
+                <input
+                    id="jobTitle"
+                    type="text"
+                    placeholder="Graphic Designer">
+
+            </div>
+
+
+            <div>
+
+                <label>
+                    Company
+                </label>
+
+                <input
+                    id="jobCompany"
+                    type="text"
+                    placeholder="Your company">
+
+            </div>
+
+
+            <div>
+
+                <label>
+                    Category
+                </label>
+
+                <input
+                    id="jobCategory"
+                    type="text"
+                    placeholder="Graphic Design">
+
+            </div>
+
+
+            <div>
+
+                <label>
+                    Location
+                </label>
+
+                <input
+                    id="jobLocation"
+                    type="text"
+                    placeholder="Lahore">
+
+            </div>
+
+
+            <div>
+
+                <label>
+                    Salary
+                </label>
+
+                <input
+                    id="jobSalary"
+                    type="number"
+                    placeholder="50000">
+
+            </div>
+
+        </div>
+
+
+        <label>
+            Job Description
+        </label>
+
+        <textarea
+            id="jobDescription"
+            placeholder="Describe the job requirements, responsibilities and skills you need..."></textarea>
+
+
+        <button
+            class="main-btn post-job-button"
+            onclick="postJob()">
+
+            🚀 Publish Job Opportunity
+
+        </button>
+
+    </section>
+
+
+    <!-- =================================================
+         MY JOBS
+    ================================================= -->
+
+    <section id="myJobsSection"
+             class="dashboard-box dashboard-section-card poster-content-section hidden-section">
+
+        <div class="section-title">
+
+            <div>
+
+                <span class="small-label">
+                    YOUR ACTIVITY
+                </span>
+
+                <h2>
+                    Jobs You Posted
+                </h2>
+
+                <p>
+                    Manage and review your previous job listings.
+                </p>
+
+            </div>
+
+
+            <button
+                class="small-btn"
+                onclick="loadMyJobs()">
+
+                ↻ Refresh
+
+            </button>
+
+        </div>
+
+
+        <div id="myJobsContainer"
+             class="jobs-grid">
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
+         CANDIDATES
+    ================================================= -->
+
+    <section id="candidateSection"
+             class="candidate-box dashboard-section poster-content-section hidden-section">
+
+        <div class="candidate-heading">
+
+            <div>
+
+                <span class="small-label">
+                    TALENT DISCOVERY
+                </span>
+
+                <h2>
+                    Discover Candidates
+                </h2>
+
+                <p>
+                    Search candidate resumes by skills,
+                    experience or introduction.
+                </p>
+
+            </div>
+
+            <div class="candidate-icon">
+                👥
+            </div>
+
+        </div>
+
+
+        <div class="candidate-search">
+
+            <input
+                id="resumeSearch"
+                type="text"
+                placeholder="Search e.g. Python, Designer, Photoshop...">
+
+
+            <button
+                class="search-btn"
+                onclick="searchResumes()">
+
+                🔎 Search Candidates
+
+            </button>
+
+        </div>
+
+
+        <div id="resumesContainer"
+             class="resume-grid">
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
+         APPLIED CANDIDATES
+    ================================================= -->
+
+    <section id="appliedCandidatesSection"
+             class="candidate-box dashboard-section poster-content-section hidden-section">
+
+        <div class="candidate-heading">
+
+            <div>
+
+                <span class="small-label">
+                    APPLICATIONS
+                </span>
+
+                <h2>
+                    Applied Candidates
+                </h2>
+
+                <p>
+                    Review applicants and manage their application status.
+                </p>
+
+            </div>
+
+            <div class="candidate-icon">
+                📥
+            </div>
+
+        </div>
+
+
+        <div class="application-summary-bar">
+
+            <span id="applicationSummary">
+                Loading applications...
+            </span>
+
+            <button
+                class="small-btn"
+                onclick="loadPosterApplications()">
+
+                ↻ Refresh
+
+            </button>
+
+        </div>
+
+        <div class="candidate-search" style="margin-top:18px;">
+
+            <select id="applicantJobFilter" onchange="filterPosterApplications()" style="width:100%;">
+                <option value="all">All Jobs</option>
+            </select>
+
+        </div>
+
+
+        <div id="posterApplicationsContainer"
+             class="resume-grid">
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
+         POSTER NOTIFICATIONS
+    ================================================= -->
+
+    <section id="notificationSection"
+             class="dashboard-box dashboard-section-card notification-panel poster-content-section hidden-section">
+
+        <div class="section-card-header">
+
+            <div class="section-card-icon history-icon">
+                🔔
+            </div>
+
+            <div>
+
+                <span class="small-label">
+                    UPDATES
+                </span>
+
+                <h2>
+                    Notifications
+                </h2>
+
+                <p>
+                    New applications and candidate activity.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <button
+            class="small-btn section-action-btn"
+            onclick="loadNotifications()">
+
+            ↻ Refresh Notifications
+
+        </button>
+
+
+        <div id="posterNotifications">
+        </div>
+
+    </section>
+
+</section>
+
+
+<!-- =====================================================
+     JOB MODAL
+===================================================== -->
+
+<div id="jobModal"
+     class="modal hidden">
+
+    <div class="modal-content">
+
+        <button
+            class="close-btn"
+            onclick="closeJobModal()">
+
+            ×
+
+        </button>
+
+        <div class="modal-top">
+
+            <span class="small-label">
+                JOB DETAILS
+            </span>
+
+            <div class="modal-icon">
+                💼
+            </div>
+
+        </div>
+
+
+        <div id="jobModalContent">
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     APPLY MODAL
+===================================================== -->
+
+<div id="applyModal"
+     class="modal hidden">
+
+    <div class="modal-content apply-modal">
+
+        <button
+            class="close-btn"
+            onclick="closeApplyModal()">
+
+            ×
+
+        </button>
+
+
+        <div class="modal-top">
+
+            <span class="small-label">
+                APPLICATION
+            </span>
+
+            <div class="modal-icon">
+                📩
+            </div>
+
+        </div>
+
+
+        <h2>
+            Apply for this Job
+        </h2>
+
+        <p class="modal-description">
+            Complete the application once and send your information directly to the employer.
+        </p>
+
+
+        <input
+            type="hidden"
+            id="applyJobId">
+
+
+        <label>
+            Your Name
+        </label>
+
+        <input
+            id="applyName"
+            type="text"
+            placeholder="Your name">
+
+        <div id="applyNameValidation"></div>
+
+
+        <label>
+            Your Email
+        </label>
+
+        <input
+            id="applyEmail"
+            type="email"
+            placeholder="Your email">
+
+        <div id="applyEmailValidation"></div>
+
+
+        <label>
+            Contact Number
+        </label>
+
+        <input
+            id="applyContact"
+            type="text"
+            placeholder="e.g. 03001234567">
+
+        <div id="applyContactValidation"></div>
+
+
+        <label>
+            Introduce Yourself
+        </label>
+
+        <textarea
+            id="applyIntroduction"
+            placeholder="Tell the employer about yourself, your experience and why you are suitable for this job..."></textarea>
+
+        <div id="applyIntroductionValidation"></div>
+
+
+        <div class="apply-resume-required">
+
+            <div class="apply-resume-icon">
+                📄
+            </div>
+
+            <div>
+
+                <strong>
+                    Resume is required
+                </strong>
+
+                <p>
+                    Upload the resume you want to send with this application.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <label>
+            Resume
+        </label>
+
+        <input
+            id="applyResumeFile"
+            type="file"
+            accept=".pdf,.doc,.docx">
+
+        <div id="applyResumeValidation"></div>
+
+
+        <div id="applyError"
+             class="form-error-box">
+        </div>
+
+
+        <button
+            class="main-btn"
+            onclick="submitApplication()">
+
+            📩 Submit Application
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     STATUS UPDATE MODAL
+===================================================== -->
+
+<div id="statusUpdateModal"
+     class="modal hidden">
+
+    <div class="modal-content status-update-modal">
+
+        <button
+            class="close-btn"
+            onclick="closeStatusUpdateModal()">
+
+            ×
+
+        </button>
+
+
+        <div class="modal-top">
+
+            <span class="small-label">
+                APPLICATION UPDATE
+            </span>
+
+            <div id="statusModalIcon"
+                 class="modal-icon">
+                📋
+            </div>
+
+        </div>
+
+
+        <h2 id="statusModalTitle">
+            Update Application
+        </h2>
+
+        <p id="statusModalApplicant"
+           class="modal-description">
+        </p>
+
+
+        <input
+            type="hidden"
+            id="statusApplicationId">
+
+        <input
+            type="hidden"
+            id="selectedApplicationStatus">
+
+
+        <!-- HIRE -->
+
+        <div id="hireFields"
+             class="status-modal-fields hidden">
+
+            <label>
+                Salary *
+            </label>
+
+            <input
+                id="hireSalary"
+                type="number"
+                placeholder="e.g. 90000">
+
+            <div id="hireSalaryValidation"></div>
+
+
+            <label>
+                Remarks
+            </label>
+
+            <textarea
+                id="hireRemarks"
+                placeholder="Congratulations! Add any additional information..."></textarea>
+
+        </div>
+
+
+        <!-- SHORTLIST -->
+
+        <div id="shortlistFields"
+             class="status-modal-fields hidden">
+
+            <label>
+                Interview Date *
+            </label>
+
+            <input
+                id="interviewDate"
+                type="date">
+
+            <div id="interviewDateValidation"></div>
+
+
+            <label>
+                Interview Time *
+            </label>
+
+            <input
+                id="interviewTime"
+                type="time">
+
+            <div id="interviewTimeValidation"></div>
+
+
+            <label>
+                Remarks
+            </label>
+
+            <textarea
+                id="shortlistRemarks"
+                placeholder="Add interview instructions or remarks..."></textarea>
+
+        </div>
+
+
+        <!-- REVIEW -->
+
+        <div id="reviewFields"
+             class="status-modal-fields hidden">
+
+            <label>
+                Remarks *
+            </label>
+
+            <textarea
+                id="reviewRemarks"
+                placeholder="Tell the applicant that their application is under review..."></textarea>
+
+            <div id="reviewRemarksValidation"></div>
+
+        </div>
+
+
+        <!-- REJECT -->
+
+        <div id="rejectFields"
+             class="status-modal-fields hidden">
+
+            <label>
+                Remarks / Reason *
+            </label>
+
+            <textarea
+                id="rejectRemarks"
+                placeholder="Explain the reason or provide professional feedback..."></textarea>
+
+            <div id="rejectRemarksValidation"></div>
+
+        </div>
+
+
+        <div id="statusUpdateError"
+             class="form-error-box">
+        </div>
+
+
+        <button
+            id="confirmStatusButton"
+            class="main-btn"
+            onclick="confirmApplicationStatus()">
+
+            Confirm Update
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     TOAST
+===================================================== -->
+
+<div id="toast"
+     class="toast">
+
+    <div class="toast-icon">
+        ✓
+    </div>
+
+    <div>
+
+        <strong>
+            JobSphere
+        </strong>
+
+        <span id="toastMessage"></span>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+
+</html>
