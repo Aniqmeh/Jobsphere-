@@ -35,6 +35,8 @@ app.config["RESUME_FOLDER"] = RESUME_FOLDER
 app.config["MAX_CONTENT_LENGTH"] = 10 * 1024 * 1024  # 10 MB limit
 
 db = SQLAlchemy(app)
+with app.app_context():
+    db.create_all()
 
 # =========================================================
 # CREATE FOLDERS
