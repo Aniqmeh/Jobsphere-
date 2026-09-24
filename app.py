@@ -12,6 +12,7 @@ from flask import (
 )
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.utils import secure_filename
+from werkzeug.security import generate_password_hash, check_password_hash
 
 
 # =========================================================
@@ -20,12 +21,15 @@ from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
 
-app.secret_key = "jobsphere_secret_key_2026"
+# Use an environment variable in production; falls back to a dev key locally.
+app.secret_key = os.environ.get("SECRET_KEY", "jobsphere_secret_key_2026")
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-# Database Configuration (SQLite default)
-app.config["SQLALCHEMY_DATABASE_URI"] = f"sqlite:///{os.path.join(BASE_DIR, 'jobsphere.db')}"
+# Database Configuration (SQLite default; override with DATABASE_URL in production)
+app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get(
+    "DATABASE_URL", f"sqlite:///{os.path.join(BASE_DIR, 'jobsphere.db')}"
+)
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 RESUME_FOLDER = os.path.join(BASE_DIR, "resumes")
@@ -35,8 +39,6 @@ app.config["RESUME_FOLDER"] = RESUME_FOLDER
 app.config["MAX_CONTENT_LENGTH"] = 10 * 1024 * 1024  # 10 MB limit
 
 db = SQLAlchemy(app)
-with app.app_context():
-    db.create_all()
 
 # =========================================================
 # CREATE FOLDERS
@@ -49,7 +51,6 @@ os.makedirs(RESUME_FOLDER, exist_ok=True)
 # DATABASE MODELS
 # =========================================================
 
-# Association table for User-Job favorites (Many-to-Many)
 favorites_table = db.Table(
     'favorites',
     db.Column('user_id', db.Integer, db.ForeignKey('users.id'), primary_key=True),
@@ -66,12 +67,17 @@ class User(db.Model):
     password = db.Column(db.String(255), nullable=False)
     role = db.Column(db.String(50), nullable=False)  # 'job_seeker' or 'job_poster'
 
-    # Relationships
     jobs = db.relationship('Job', backref='poster', lazy=True, cascade="all, delete-orphan")
     applications = db.relationship('Application', backref='applicant', lazy=True)
     resumes = db.relationship('Resume', backref='owner', lazy=True)
     notifications = db.relationship('Notification', backref='user', lazy=True, cascade="all, delete-orphan")
     favorites = db.relationship('Job', secondary=favorites_table, backref=db.backref('favorited_by', lazy=True))
+
+    def set_password(self, raw_password):
+        self.password = generate_password_hash(raw_password)
+
+    def check_password(self, raw_password):
+        return check_password_hash(self.password, raw_password)
 
     def clean_dict(self):
         return {
@@ -144,12 +150,12 @@ class Application(db.Model):
     job_id = db.Column(db.Integer, db.ForeignKey('jobs.id'), nullable=True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     resume_id = db.Column(db.Integer, db.ForeignKey('resumes.id'), nullable=False)
-    
+
     applicant_name = db.Column(db.String(150), nullable=False)
     applicant_email = db.Column(db.String(150), nullable=False)
     contact = db.Column(db.String(50), nullable=False)
     introduction = db.Column(db.Text, nullable=False)
-    
+
     status = db.Column(db.String(50), default="Applied")
     salary = db.Column(db.String(100), default="")
     interview_date = db.Column(db.String(50), default="")
@@ -157,7 +163,6 @@ class Application(db.Model):
     remarks = db.Column(db.Text, default="")
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
 
-    # Historical snapshot of job data in case the original posting is deleted
     job_snapshot = db.Column(db.JSON, nullable=True)
 
     def get_job_info(self):
@@ -222,7 +227,7 @@ class Notification(db.Model):
         }
 
 
-# Create database schema
+# Create database schema (once)
 with app.app_context():
     db.create_all()
 
@@ -349,9 +354,10 @@ def signup():
     new_user = User(
         name=name,
         email=email,
-        password=password,
+        password="",
         role=role
     )
+    new_user.set_password(password)
 
     db.session.add(new_user)
     db.session.commit()
@@ -388,9 +394,9 @@ def login():
     if role not in ["job_seeker", "job_poster"]:
         return jsonify({"success": False, "message": "Please select a valid portal."}), 400
 
-    user = User.query.filter_by(email=email, password=password, role=role).first()
+    user = User.query.filter_by(email=email, role=role).first()
 
-    if not user:
+    if not user or not user.check_password(password):
         return jsonify({"success": False, "message": "Incorrect email, password, or portal."}), 401
 
     session.clear()
@@ -461,8 +467,8 @@ def get_jobs():
 # SINGLE JOB
 # =========================================================
 
-@app.route("/api/jobs/", methods=["GET"])
-@app.route("/jobs/", methods=["GET"])
+@app.route("/api/jobs/<int:job_id>", methods=["GET"])
+@app.route("/jobs/<int:job_id>", methods=["GET"])
 def get_single_job(job_id):
     job = db.session.get(Job, job_id)
     if not job:
@@ -540,7 +546,7 @@ def my_jobs():
 # FAVORITE / UNFAVORITE
 # =========================================================
 
-@app.route("/api/jobs//favorite", methods=["POST"])
+@app.route("/api/jobs/<int:job_id>/favorite", methods=["POST"])
 @role_required("job_seeker")
 def favorite_job(job_id):
     user = get_current_user()
@@ -572,7 +578,7 @@ def get_favorites():
     return jsonify({"success": True, "jobs": jobs, "favorites": fav_ids})
 
 
-@app.route("/api/jobs//unfavorite", methods=["POST"])
+@app.route("/api/jobs/<int:job_id>/unfavorite", methods=["POST"])
 @role_required("job_seeker")
 def unfavorite_job(job_id):
     user = get_current_user()
@@ -590,8 +596,8 @@ def unfavorite_job(job_id):
 # APPLY FOR JOB
 # =========================================================
 
-@app.route("/api/jobs//apply", methods=["POST"])
-@app.route("/apply/", methods=["POST"])
+@app.route("/api/jobs/<int:job_id>/apply", methods=["POST"])
+@app.route("/apply/<int:job_id>", methods=["POST"])
 @role_required("job_seeker")
 def apply_for_job(job_id):
     user = get_current_user()
@@ -627,7 +633,6 @@ def apply_for_job(job_id):
 
     extension = file.filename.rsplit(".", 1)[1].lower()
 
-    # Create temporary record to assign primary key ID for filename naming
     new_resume = Resume(
         user_id=user.id,
         filename="",
@@ -664,7 +669,6 @@ def apply_for_job(job_id):
     db.session.add(application)
     db.session.flush()
 
-    # Notify Job Poster
     poster = db.session.get(User, job.poster_id)
     if poster:
         notification = Notification(
@@ -768,8 +772,7 @@ def my_applicants():
     results = []
     for app_item in applications:
         job_info = app_item.get_job_info()
-        
-        # Verify ownership via active job or snapshot
+
         job_poster_id = job_info.get("poster_id") if isinstance(job_info, dict) else None
         if not job_poster_id or int(job_poster_id) != poster.id:
             continue
@@ -805,7 +808,7 @@ def my_applicants():
 # APPLICANTS FOR A SPECIFIC JOB
 # =========================================================
 
-@app.route("/api/jobs//applicants", methods=["GET"])
+@app.route("/api/jobs/<int:job_id>/applicants", methods=["GET"])
 @role_required("job_poster")
 def job_applicants(job_id):
     poster = get_current_user()
@@ -864,7 +867,6 @@ def upload_resume():
 
     extension = file.filename.rsplit(".", 1)[1].lower()
 
-    # Clear previous profile resume flags for this user
     Resume.query.filter_by(user_id=user.id, profile_resume=True).update({"profile_resume": False})
 
     new_resume = Resume(
@@ -942,7 +944,7 @@ def get_candidates():
 # RESUME FILE SERVING
 # =========================================================
 
-@app.route("/resumes/", methods=["GET"])
+@app.route("/resumes/<path:filename>", methods=["GET"])
 def serve_resume(filename):
     return send_from_directory(RESUME_FOLDER, filename, as_attachment=False)
 
@@ -978,7 +980,7 @@ def mark_notifications_read():
 # UPDATE APPLICATION STATUS
 # =========================================================
 
-@app.route("/api/applications//status", methods=["POST"])
+@app.route("/api/applications/<int:application_id>/status", methods=["POST"])
 @role_required("job_poster")
 def update_application_status(application_id):
     poster = get_current_user()
@@ -1004,7 +1006,6 @@ def update_application_status(application_id):
     if not job_poster_id or int(job_poster_id) != poster.id:
         return jsonify({"success": False, "message": "You cannot update this application."}), 403
 
-    # Field validations based on status
     if status == "Hired" and not salary:
         return jsonify({"success": False, "field": "salary", "message": "Salary is required when hiring a candidate."}), 400
 
@@ -1017,14 +1018,12 @@ def update_application_status(application_id):
     if status in ["Rejected", "Under Review"] and not remarks:
         return jsonify({"success": False, "field": "remarks", "message": "Remarks are required."}), 400
 
-    # Apply updates
     application.status = status
     application.salary = salary if status == "Hired" else ""
     application.interview_date = interview_date if status == "Shortlisted" else ""
     application.interview_time = interview_time if status == "Shortlisted" else ""
     application.remarks = remarks if status in ["Hired", "Shortlisted", "Rejected", "Under Review"] else ""
 
-    # Notify Applicant
     job_title = job_info.get("title", "Job")
     if status == "Hired":
         message = f"Congratulations! You have been hired for '{job_title}'. Salary: {salary}."
@@ -1056,7 +1055,7 @@ def update_application_status(application_id):
 # DELETE JOB
 # =========================================================
 
-@app.route("/api/jobs/", methods=["DELETE"])
+@app.route("/api/jobs/<int:job_id>", methods=["DELETE"])
 @role_required("job_poster")
 def delete_job(job_id):
     poster = get_current_user()
@@ -1068,13 +1067,11 @@ def delete_job(job_id):
     if job.poster_id != poster.id:
         return jsonify({"success": False, "message": "You can only delete your own jobs."}), 403
 
-    # Preserve snapshot for all current applications before breaking foreign key
     applications = Application.query.filter_by(job_id=job.id).all()
     for application in applications:
         application.job_snapshot = job.to_dict()
         application.job_id = None
 
-    # Remove job from all user favorites
     job.favorited_by.clear()
 
     db.session.delete(job)
@@ -1110,17 +1107,15 @@ def internal_error(error):
 # =========================================================
 
 if __name__ == "__main__":
+    debug_mode = os.environ.get("FLASK_DEBUG", "false").lower() == "true"
+    port = int(os.environ.get("PORT", 5000))
+
     print("")
     print("==========================================")
     print("        JOBSPHERE JOB PORTAL")
     print("==========================================")
-    print("Server starting...")
-    print("Open: http://127.0.0.1:5000/")
+    print(f"Server starting on port {port}...")
     print("==========================================")
     print("")
 
-    app.run(
-        host="127.0.0.1",
-        port=5000,
-        debug=True
-    )
+    app.run(host="0.0.0.0", port=port, debug=debug_mode)
